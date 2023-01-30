@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
     getMoviess();
-  }, [movies]);
+  }, [searchName]);
 
   return (
     <div className="App">
