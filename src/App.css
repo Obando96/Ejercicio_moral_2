@@ -1,0 +1,62 @@
+.App{
+    background-image: url("./assets/imagenes/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-movies{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.container-movies img{
+    width: 300px;
+    height: 450px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.container-movies img:hover{
+    transform: scale(1.03);
+}
+
+.cartelera{
+    display: grid;
+    grid-template-columns: auto auto auto auto ;
+    max-width: 1200px;
+    gap: 20px;
+}
+.container-movies__title{
+    margin: 0;
+    padding: 0;
+}
+.container-movies__year{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+.formulario{
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.formulario input{
+    font-size: 20px;
+    width: 450px;
+    border: 1px solid red;
+    border-radius: 5px;
+}
+
+.formulario button{
+    font-size: 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: greenyellow;
+    width: 80px;
+    cursor: pointer;
+}
