@@ -13,19 +13,22 @@ function App() {
   
 
   const handleSearch = (e) => {
-    let errorString;
     e.preventDefault();
-    if(!setSearchName(e.target.searchMovie.value)){
-      return (
-        errorString="Ingrse un nombre"
-      );
-    }
-    setSearchName(e.target.searchMovie.value);
+    setSearchName(e.target.searchMovie.value)
+    
   }
-  const getMoviess = () =>{
+  /* const getMoviess = () =>{
     const URL = `http://www.omdbapi.com/?apikey=${APY_KEY}&s=${searchName}`;
     axios.get(URL)
       .then((res) => setMovies(res.data.Search))
+      .catch((err) => console.log(err));
+  } */
+  const getMoviess = () =>{
+    const URL = `http://www.omdbapi.com/?apikey=${APY_KEY}&s=${searchName}`;
+    axios.get(URL)
+      .then((res) => {
+      if(res.data.Response === "True") setMovies(res.data.Search)
+    })
       .catch((err) => console.log(err));
   }
 
@@ -40,18 +43,16 @@ function App() {
 
         <label htmlFor="">Buscar </label>
         <input id='searchMovie' type="text" />
-
         <button>Buscar</button>
       </form>
-      
       <section className='cartelera'>
-        {
-          movies.map(movie => {
-            return(
-              <Movies key={movie.imdbID}  Poster={movie.Poster} Title={movie.Title} Year={movie.Year}/>
-            );
-          })
-        }
+      {
+        movies.map(movie => {
+          return(
+            <Movies key={movie.imdbID}  Poster={movie.Poster} Title={movie.Title} Year={movie.Year}/>
+          )
+        })
+      }
       </section>
     </div>
   )
